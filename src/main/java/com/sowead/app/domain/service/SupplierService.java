@@ -18,10 +18,6 @@ public class SupplierService {
         return supplierRepository.getAll();
     }
 
-    public Optional<Supplier> getByName(String name) {
-        return supplierRepository.getByName(name);
-    }
-
     public Optional<Supplier> getSupplier(int supplierId) {
         return supplierRepository.getSupplier(supplierId);
     }

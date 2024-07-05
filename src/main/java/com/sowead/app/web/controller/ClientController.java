@@ -12,32 +12,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sowead.app.domain.Supplier;
-import com.sowead.app.domain.service.SupplierService;
+import com.sowead.app.domain.Client;
+import com.sowead.app.domain.service.ClientService;
 
 @RestController
-@RequestMapping("/suppliers")
-public class SupplierController {
+@RequestMapping("/clients")
+public class ClientController {
     @Autowired
-    private SupplierService supplierService;
+    private ClientService clientService;
 
     @GetMapping()
-    public List<Supplier> getAll() {
-        return supplierService.getAll();
+    public List<Client> getAll() {
+        return clientService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Supplier> getSupplier(@PathVariable("id") int supplierId) {
-        return supplierService.getSupplier(supplierId);
+    public Optional<Client> getClient(@PathVariable("id") int clientId) {
+        return clientService.getClient(clientId);
     }
 
     @PostMapping("/save")
-    public Supplier save(@RequestBody Supplier supplier) {
-        return supplierService.save(supplier);
+    public Client save(@RequestBody Client client) {
+        return clientService.save(client);
     }
 
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable("id") int supplierId) {
-        return supplierService.delete(supplierId);
+    public boolean delete(@PathVariable("id") int clientId) {
+        return clientService.delete(clientId);
     }
 }

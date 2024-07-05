@@ -27,11 +27,6 @@ public class ProveedorRepository implements SupplierRepository{
     }
 
     @Override
-    public Optional<Supplier> getByName(String name) {
-        return proveedorCrudRepository.findByNombre(name).map(proveedor -> mapper.toSupplier(proveedor));
-    }
-
-    @Override
     public Optional<Supplier> getSupplier(int supplierId) {
         return proveedorCrudRepository.findById(supplierId).map(proveedor -> mapper.toSupplier(proveedor));
     }
