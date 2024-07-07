@@ -15,28 +15,22 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "proveedores")
-public class Proveedor {
+@Table(name = "usuarios")
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ProveedorID")
-    private Integer idProveedor;
+    @Column(name = "id_usuario")
+    private Integer idUsuario;
 
-    @Column(name = "Nombre")
+    @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "Contacto")
-    private String contacto;
+    @Column(name = "estado")
+    private Boolean estado;
 
-    @Column(name = "Telefono")
-    private String telefono;
+    @OneToMany(mappedBy = "usuario")
+    private List<EntradaMaterial> entradaMateriales;
 
-    @Column(name = "Correo")
-    private String correo;
-
-    @Column(name = "Direccion")
-    private String direccion;
-
-    @OneToMany(mappedBy = "proveedor")
-    private List<Producto> productos;
+    @OneToMany(mappedBy = "usuario")
+    private List<SalidaMaterial> salidaMateriales;
 }

@@ -2,7 +2,6 @@ package com.sowead.app.persistence.entity;
 
 import java.util.List;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,25 +14,21 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "clientes")
-public class Cliente {
+@Table(name = "motivos")
+public class Motivo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ClienteID")
-    private Integer idCliente;
+    private Integer idMotivo;
 
-    @Column(name = "Nombre")
     private String nombre;
 
-    @Column(name = "Telefono")
-    private String telefono;
+    private String categoria;
 
-    @Column(name = "Correo")
-    private String correo;
+    private Boolean estado;
 
-    @Column(name = "Direccion")
-    private String direccion;
+    @OneToMany(mappedBy = "motivo")
+    private List<EntradaMaterial> entradaMateriales;
 
-    @OneToMany(mappedBy = "cliente")
-    private List<Pedido> pedidos;
+    @OneToMany(mappedBy = "motivo")
+    private List<SalidaMaterial> salidaMateriales;
 }
