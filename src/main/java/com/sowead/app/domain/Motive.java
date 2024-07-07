@@ -5,8 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class User {
-    private int userId;
+public class Motive {
+    private int motiveId;
     private String name;
+    private String category;
     private boolean status;
 }

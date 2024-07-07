@@ -34,6 +34,13 @@ public class UserService {
         }).orElse(null);
     }
 
+    public User updateStatus(int userId, User user) {
+        return getUser(userId).map(currentUser -> {
+            currentUser.setStatus(user.isStatus());
+            return userRepository.save(currentUser);
+        }).orElse(null);
+    }
+
     public boolean delete(int userId) {
         return getUser(userId).map(user -> {
             userRepository.delete(userId);

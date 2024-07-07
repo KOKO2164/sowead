@@ -2,6 +2,7 @@ package com.sowead.app.persistence.entity;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +19,7 @@ import lombok.Setter;
 public class Almacen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_almacen")
     private Integer idAlmacen;
 
     private String codigo;
