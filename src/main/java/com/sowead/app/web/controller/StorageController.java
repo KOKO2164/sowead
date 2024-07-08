@@ -33,6 +33,11 @@ public class StorageController {
         return storageService.getStorage(storageId);
     }
 
+    @GetMapping("/active")
+    public List<Storage> getByActive() {
+        return storageService.getStoragesByActive();
+    }
+
     @PostMapping("/save")
     public Storage save(@RequestBody Storage storage) {
         return storageService.save(storage);

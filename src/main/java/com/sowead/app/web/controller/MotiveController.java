@@ -33,6 +33,11 @@ public class MotiveController {
         return motiveService.getMotive(motiveId);
     }
 
+    @GetMapping("/active")
+    public List<Motive> getByActive() {
+        return motiveService.getMotiveByActive();
+    }
+
     @PostMapping("/save")
     public Motive save(@RequestBody Motive motive) {
         return motiveService.save(motive);

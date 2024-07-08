@@ -33,6 +33,11 @@ public class UserController {
         return userService.getUser(userId);
     }
 
+    @GetMapping("/active")
+    public List<User> getByActive() {
+        return userService.getUserByActive();
+    }
+
     @PostMapping("/save")
     public User save(@RequestBody User user) {
         return userService.save(user);

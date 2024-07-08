@@ -2,6 +2,7 @@ package com.sowead.app.domain.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,11 @@ public class StorageService {
 
     public Optional<Storage> getStorage(int storageId) {
         return storageRepository.getStorage(storageId);
+    }
+
+    public List<Storage> getStoragesByActive() {
+        List<Storage> storages = storageRepository.getAll();
+        return storages.stream().filter(Storage::isStatus).collect(Collectors.toList());
     }
 
     public Storage save(Storage storage) {

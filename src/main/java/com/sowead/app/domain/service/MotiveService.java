@@ -2,6 +2,7 @@ package com.sowead.app.domain.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,11 @@ public class MotiveService {
 
     public Optional<Motive> getMotive(int motiveId) {
         return motiveRepository.getMotive(motiveId);
+    }
+
+    public List<Motive> getMotiveByActive() {
+        List<Motive> motives = motiveRepository.getAll();
+        return motives.stream().filter(Motive::isStatus).collect(Collectors.toList());
     }
 
     public Motive save(Motive motive) {
