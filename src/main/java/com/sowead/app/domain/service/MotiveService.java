@@ -30,7 +30,14 @@ public class MotiveService {
         return getMotive(motiveId).map(currentMotive -> {
             currentMotive.setName(motive.getName());
             currentMotive.setCategory(motive.getCategory());
-            currentMotive.setStatus(motive.isStatus());
+            currentMotive.setStatus(true);
+            return motiveRepository.save(currentMotive);
+        }).orElse(null);
+    }
+
+    public Motive updateStatus(int motiveId, Motive motive) {
+        return getMotive(motiveId).map(currentMotive -> {
+            currentMotive.setStatus(false);
             return motiveRepository.save(currentMotive);
         }).orElse(null);
     }

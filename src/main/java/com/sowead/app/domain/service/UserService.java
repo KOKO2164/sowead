@@ -29,14 +29,14 @@ public class UserService {
     public User update(int userId, User user) {
         return getUser(userId).map(currentUser -> {
             currentUser.setName(user.getName());
-            currentUser.setStatus(user.isStatus());
+            currentUser.setStatus(true);
             return userRepository.save(currentUser);
         }).orElse(null);
     }
 
     public User updateStatus(int userId, User user) {
         return getUser(userId).map(currentUser -> {
-            currentUser.setStatus(user.isStatus());
+            currentUser.setStatus(false);
             return userRepository.save(currentUser);
         }).orElse(null);
     }

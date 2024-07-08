@@ -31,10 +31,17 @@ public class MaterialDepartureService {
             currentMaterialDeparture.setDescription(materialDeparture.getDescription());
             currentMaterialDeparture.setQuantity(materialDeparture.getQuantity());
             currentMaterialDeparture.setPrice(materialDeparture.getPrice());
-            currentMaterialDeparture.setStatus(materialDeparture.isStatus());
+            currentMaterialDeparture.setStatus(true);
             currentMaterialDeparture.setUser(materialDeparture.getUser());
             currentMaterialDeparture.setMotive(materialDeparture.getMotive());
             currentMaterialDeparture.setStorage(materialDeparture.getStorage());
+            return materialDepartureRepository.save(currentMaterialDeparture);
+        }).orElse(null);
+    }
+
+    public MaterialDeparture updateStatus(int materialDepartureId, MaterialDeparture materialDeparture) {
+        return getMaterialDeparture(materialDepartureId).map(currentMaterialDeparture -> {
+            currentMaterialDeparture.setStatus(false);
             return materialDepartureRepository.save(currentMaterialDeparture);
         }).orElse(null);
     }

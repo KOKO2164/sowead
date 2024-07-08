@@ -31,7 +31,14 @@ public class StorageService {
             currentStorage.setCode(storage.getCode());
             currentStorage.setName(storage.getName());
             currentStorage.setDescription(storage.getDescription());
-            currentStorage.setStatus(storage.isStatus());
+            currentStorage.setStatus(true);
+            return storageRepository.save(currentStorage);
+        }).orElse(null);
+    }
+
+    public Storage updateStatus(int storageId, Storage storage) {
+        return getStorage(storageId).map(currentStorage -> {
+            currentStorage.setStatus(false);
             return storageRepository.save(currentStorage);
         }).orElse(null);
     }

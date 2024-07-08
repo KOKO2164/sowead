@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -40,6 +41,11 @@ public class StorageController {
     @PutMapping("/update/{id}")
     public Storage update(@PathVariable("id") int storageId, @RequestBody Storage storage) {
         return storageService.update(storageId, storage);
+    }
+
+    @PatchMapping("/update-status/{id}")
+    public Storage updateStatus(@PathVariable("id") int storageId, @RequestBody Storage storage) {
+        return storageService.updateStatus(storageId, storage);
     }
 
     @DeleteMapping("/delete/{id}")

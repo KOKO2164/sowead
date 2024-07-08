@@ -31,10 +31,17 @@ public class MaterialEntranceService {
             currentMaterialEntrance.setDescription(materialEntrance.getDescription());
             currentMaterialEntrance.setQuantity(materialEntrance.getQuantity());
             currentMaterialEntrance.setPrice(materialEntrance.getPrice());
-            currentMaterialEntrance.setStatus(materialEntrance.isStatus());
+            currentMaterialEntrance.setStatus(true);
             currentMaterialEntrance.setUser(materialEntrance.getUser());
             currentMaterialEntrance.setMotive(materialEntrance.getMotive());
             currentMaterialEntrance.setStorage(materialEntrance.getStorage());
+            return materialEntranceRepository.save(currentMaterialEntrance);
+        }).orElse(null);
+    }
+
+    public MaterialEntrance updateStatus(int materialEntranceId, MaterialEntrance materialEntrance) {
+        return getMaterialEntrance(materialEntranceId).map(currentMaterialEntrance -> {
+            currentMaterialEntrance.setStatus(false);
             return materialEntranceRepository.save(currentMaterialEntrance);
         }).orElse(null);
     }
