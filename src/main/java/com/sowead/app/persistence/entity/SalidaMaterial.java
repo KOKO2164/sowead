@@ -28,15 +28,15 @@ public class SalidaMaterial {
     private Double precio;
 
     @ManyToOne
-    @JoinColumn(name = "idUsuario", insertable = false, updatable = false)
+    @JoinColumn(name = "id_usuario", insertable = true, updatable = true)
     private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn(name = "idMotivo", insertable = false, updatable = false)
+    @JoinColumn(name = "id_motivo", insertable = true, updatable = true)
     private Motivo motivo;
 
     @ManyToOne
-    @JoinColumn(name = "idAlmacen", insertable = false, updatable = false)
+    @JoinColumn(name = "id_almacen", insertable = true, updatable = true)
     private Almacen almacen;
     
     private Boolean estado;
