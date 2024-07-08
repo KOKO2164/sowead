@@ -38,7 +38,8 @@ public class MaterialEntranceController {
     }
 
     @PutMapping("/update/{id}")
-    public MaterialEntrance update(@PathVariable("id") int materialEntranceId, @RequestBody MaterialEntrance materialEntrance) {
+    public MaterialEntrance update(@PathVariable("id") int materialEntranceId,
+            @RequestBody MaterialEntrance materialEntrance) {
         return materialEntranceService.update(materialEntranceId, materialEntrance);
     }
 

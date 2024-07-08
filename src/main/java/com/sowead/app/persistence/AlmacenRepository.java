@@ -13,7 +13,7 @@ import com.sowead.app.persistence.entity.Almacen;
 import com.sowead.app.persistence.mapper.StorageMapper;
 
 @Repository
-public class AlmacenRepository implements StorageRepository{
+public class AlmacenRepository implements StorageRepository {
     @Autowired
     private AlmacenCrudRepository almacenCrudRepository;
 

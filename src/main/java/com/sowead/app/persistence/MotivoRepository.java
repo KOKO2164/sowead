@@ -13,7 +13,7 @@ import com.sowead.app.persistence.entity.Motivo;
 import com.sowead.app.persistence.mapper.MotiveMapper;
 
 @Repository
-public class MotivoRepository implements MotiveRepository{
+public class MotivoRepository implements MotiveRepository {
     @Autowired
     private MotivoCrudRepository motivoCrudRepository;
 

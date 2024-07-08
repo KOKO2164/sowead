@@ -13,7 +13,7 @@ import com.sowead.app.persistence.entity.EntradaMaterial;
 import com.sowead.app.persistence.mapper.MaterialEntranceMapper;
 
 @Repository
-public class EntradaMaterialRepository implements MaterialEntranceRepository{
+public class EntradaMaterialRepository implements MaterialEntranceRepository {
     @Autowired
     private EntradaMaterialCrudRepository entradaMaterialCrudRepository;
 
@@ -28,7 +28,8 @@ public class EntradaMaterialRepository implements MaterialEntranceRepository{
 
     @Override
     public Optional<MaterialEntrance> getMaterialEntrance(int materialEntranceId) {
-        return entradaMaterialCrudRepository.findById(materialEntranceId).map(entradaMaterial -> mapper.toMaterialEntrance(entradaMaterial));
+        return entradaMaterialCrudRepository.findById(materialEntranceId)
+                .map(entradaMaterial -> mapper.toMaterialEntrance(entradaMaterial));
     }
 
     @Override
@@ -41,5 +42,4 @@ public class EntradaMaterialRepository implements MaterialEntranceRepository{
     public void delete(int materialEntranceId) {
         entradaMaterialCrudRepository.deleteById(materialEntranceId);
     }
-
 }
